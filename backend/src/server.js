@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
+const interviewRoutes = require("./routes/interview.routes");
 
 const app = express();
 
@@ -14,8 +15,15 @@ app.use(
     })
 );
 
+
+
+
 app.use(express.json());
+
 app.use(express.urlencoded({ extended: true }));
+app.use("/api/interview", interviewRoutes);
+
+
 
 // Root route
 app.get("/", (req, res) => {
